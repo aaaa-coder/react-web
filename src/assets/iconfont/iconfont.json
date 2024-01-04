@@ -1,0 +1,37 @@
+{
+  "id": "4397529",
+  "name": "react的管理后台",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2076308",
+      "name": " 首页",
+      "font_class": "shouye",
+      "unicode": "e89f",
+      "unicode_decimal": 59551
+    },
+    {
+      "icon_id": "6204791",
+      "name": "出版社",
+      "font_class": "chubanshe",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "11125236",
+      "name": "文章",
+      "font_class": "16",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "12705237",
+      "name": "退出登录",
+      "font_class": "tuichudenglu",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    }
+  ]
+}

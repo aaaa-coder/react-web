@@ -13,7 +13,8 @@ const Login = () => {
    * @param { object } value
    */
   const onFinish = async (value) => {
-    await dispatch(handleLogin(value));
+    const res = await dispatch(handleLogin(value));
+    console.log(res);
     navigate("/");
     message.success("登录成功");
   };

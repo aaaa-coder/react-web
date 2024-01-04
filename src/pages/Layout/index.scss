@@ -1,0 +1,13 @@
+.layout_wrapper {
+    height: 100%;
+}
+
+.content {
+    display: flex;
+    height: calc(100% - 120px);
+    .layout_content {
+        padding: 20px;
+        flex: 1;
+        background-color: #fff;
+    }
+}

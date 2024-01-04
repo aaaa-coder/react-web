@@ -1,0 +1,30 @@
+.nav_bar {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 120px;
+    line-height: 120px;
+    background-color: pink;
+    .nav_bar_left {
+        font-size: 50px;
+    }
+    .nav_bar_right {
+        display: flex;
+        font-size: 16px;
+        .user_info {
+            display: flex;
+            align-items: center;
+            .user_avatar {
+                margin-left: 10px;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+            }
+        }
+ 
+        .logout_btn {
+            margin-left: 20px;
+        }
+    }
+}

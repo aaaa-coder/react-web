@@ -1,20 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { service } from "@/utils";
+import { service, getToken, setToken as setUserToken } from "@/utils";
+import { login, getUserInfo } from "@/apis/user";
 
 const userStore = createSlice({
   name: "user",
   initialState: {
-    token: "",
+    token: getToken() ?? "",
     userInfo: {},
   },
   reducers: {
     setToken(state, action) {
       state.token = action.payload;
+      setUserToken(action.payload);
+    },
+    setUserInfo(state, action) {
+      state.userInfo = action.payload;
     },
   },
 });
 
-const { setToken } = userStore.actions;
+const { setToken, setUserInfo } = userStore.actions;
 const userReducer = userStore.reducer;
 
 /**
@@ -22,10 +27,19 @@ const userReducer = userStore.reducer;
  */
 const handleLogin = (formData) => {
   return async (dispatch) => {
-    const { data } = await service.post("/authorizations", formData);
-    dispatch(setToken(data.token));
+    const { code, data } = await login(formData);
+    if ([200, 201].includes(code)) {
+      dispatch(setToken(data.token));
+    }
   };
 };
 
-export { handleLogin, setToken };
+const handleGetUserInfo = () => {
+  return async (dispatch) => {
+    const { data } = await getUserInfo();
+    dispatch(setUserInfo(data));
+  };
+};
+
+export { handleLogin, handleGetUserInfo, setToken };
 export default userReducer;
