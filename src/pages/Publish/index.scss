@@ -1,0 +1,14 @@
+
+.publish_wrapper {
+    height: 100%;
+    .publish_content {
+        height: calc(100% - 22px);
+        .textarea_wrapper {
+         
+            .ql-container {
+                   height: 400px;
+            }
+        }
+    }
+    
+}

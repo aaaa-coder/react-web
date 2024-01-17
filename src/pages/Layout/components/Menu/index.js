@@ -14,7 +14,7 @@ const AsideMenu = () => {
   }
   const items = [
     getItem("首页", "/home"),
-    getItem("文章管理", "/artcle"),
+    getItem("文章管理", "/article"),
     getItem("发表文章", "/publish"),
   ];
 

@@ -1,0 +1,15 @@
+.article_wrapper {
+    height: 100%;
+    .article_content {
+        height: calc(100% - 23px);
+        background-color: pink;
+
+        .article_search{
+            display: flex;
+            align-items: center;
+            .search_btn {
+                margin-left: 10px;
+            }
+        }
+    }
+}

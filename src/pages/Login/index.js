@@ -15,7 +15,7 @@ const Login = () => {
   const onFinish = async (value) => {
     const res = await dispatch(handleLogin(value));
     console.log(res);
-    navigate("/");
+    navigate("/home");
     message.success("登录成功");
   };
 
@@ -34,7 +34,8 @@ const Login = () => {
             span: 16,
           }}
           initialValues={{
-            remember: true,
+            mobile: "13800000002",
+            code: "246810",
           }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}

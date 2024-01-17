@@ -16,4 +16,5 @@ const login = (data) => {
 const getUserInfo = () => {
   return service.get("/user/profile");
 };
+
 export { login, getUserInfo };

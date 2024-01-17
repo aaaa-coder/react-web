@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { service, getToken, setToken as setUserToken } from "@/utils";
+import { getToken, removeToken, setToken as setUserToken } from "@/utils";
 import { login, getUserInfo } from "@/apis/user";
 
 const userStore = createSlice({
@@ -16,10 +16,15 @@ const userStore = createSlice({
     setUserInfo(state, action) {
       state.userInfo = action.payload;
     },
+    logout(state) {
+      state.token = "";
+      state.userInfo = {};
+      removeToken();
+    },
   },
 });
 
-const { setToken, setUserInfo } = userStore.actions;
+const { setToken, setUserInfo, logout } = userStore.actions;
 const userReducer = userStore.reducer;
 
 /**
@@ -27,13 +32,17 @@ const userReducer = userStore.reducer;
  */
 const handleLogin = (formData) => {
   return async (dispatch) => {
-    const { code, data } = await login(formData);
-    if ([200, 201].includes(code)) {
-      dispatch(setToken(data.token));
-    }
+    const { data } = await login(formData);
+    // if ([200, 201].includes(code)) {
+    dispatch(setToken(data.token));
+    // }
   };
 };
 
+/**
+ * 获取用户数据
+ * @returns
+ */
 const handleGetUserInfo = () => {
   return async (dispatch) => {
     const { data } = await getUserInfo();
@@ -41,5 +50,5 @@ const handleGetUserInfo = () => {
   };
 };
 
-export { handleLogin, handleGetUserInfo, setToken };
+export { handleLogin, handleGetUserInfo, logout };
 export default userReducer;

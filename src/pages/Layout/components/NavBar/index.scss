@@ -17,14 +17,17 @@
             align-items: center;
             .user_avatar {
                 margin-left: 10px;
+                margin-right: 10px;
                 width: 36px;
                 height: 36px;
                 border-radius: 50%;
             }
+      
         }
  
         .logout_btn {
-            margin-left: 20px;
+            font-size: 20px;
+            cursor: pointer;
         }
     }
 }
